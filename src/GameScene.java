@@ -3,15 +3,16 @@ import java.awt.geom.Rectangle2D;
 
 public class GameScene extends Scene{
     Rect background, foreground;
+    Snake snake;
 
     public GameScene() {
         background = new Rect(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         foreground = new Rect(24, 48, 24 * 31, 24 * 22);
+        snake = new Snake(10, 48, 48 + 24, 24, 24);
     }
 
     @Override
     public void update(double dt) {
-
     }
 
     @Override
@@ -22,5 +23,6 @@ public class GameScene extends Scene{
 
         g2.setColor(Color.WHITE);
         g2.fill(new Rectangle2D.Double(foreground.x, foreground.y, foreground.width, foreground.height));
+        snake.draw(g2);
     }
 }
